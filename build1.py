@@ -65,7 +65,7 @@ class Application(Frame):
         print(str(line_len) + self.var.get())
 
         
-
+    # enter dimensions and calibrate the two points, then clicking OK locks it/makes it unusable
     def toggle_to(self, to):
         self.ent_calibrate.config(state=to)
         self.btn_ok.config(state=to)
@@ -93,6 +93,7 @@ class Application(Frame):
             self.img_dim = [self.image_tk.width(), self.image_tk.height()]
             self.show_image()
 
+    # opens image file by browsing thru computer
     def show_image(self):
         self.win_init()
 
@@ -139,7 +140,7 @@ class Application(Frame):
         self.btn_generate.config(state="disabled")
         self.btn_calculate.config(state="disabled")
 
-
+    # for the OK button
     def ok(self):
         scale = self.magnitude()
         self.DX = scale/self.distance(self.calibration[0], self.calibration[1])
